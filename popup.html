@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  :root {
+    --bg: #16171b;
+    --card: #23252b;
+    --card-line: #32343c;
+    --text: #e9eaed;
+    --muted: #9a9ca3;
+    --accent: #2f80f5;
+    --track: #4b4d55;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { color-scheme: dark; }
+
+  body {
+    width: 250px;
+    margin: 0;
+    padding: 14px;
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 13px;
+  }
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .header h1 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.2px;
+  }
+
+  .logo {
+    width: 20px;
+    height: 20px;
+    flex: none;
+    color: var(--accent);
+  }
+
+  .card {
+    background: var(--card);
+    border: 1px solid var(--card-line);
+    border-radius: 10px;
+    padding: 4px;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    border-radius: 7px;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .row:hover { background: rgba(255, 255, 255, 0.05); }
+
+  .row input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    margin: 0;
+  }
+
+  .switch {
+    position: relative;
+    flex: none;
+    width: 36px;
+    height: 20px;
+    border-radius: 10px;
+    background: var(--track);
+    transition: background 0.18s ease;
+  }
+
+  .switch::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform 0.18s ease;
+  }
+
+  .row input:checked + .switch { background: var(--accent); }
+
+  .row input:checked + .switch::after { transform: translateX(16px); }
+
+  .row input:focus-visible + .switch {
+    box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+  }
+
+  .hint {
+    margin: 12px 2px 0;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.4;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+  <div class="header">
+    <svg class="logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3" y="11" width="18" height="11" rx="2"></rect>
+      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+    </svg>
+    <h1>Locked In</h1>
+  </div>
+
+  <div class="card">
+    <label class="row">
+      <input type="checkbox" id="ytFeed">
+      <span class="switch"></span>
+      <span>Hide home feed</span>
+    </label>
+    <label class="row">
+      <input type="checkbox" id="ytSidebar">
+      <span class="switch"></span>
+      <span>Hide sidebar</span>
+    </label>
+    <label class="row">
+      <input type="checkbox" id="ytComments">
+      <span class="switch"></span>
+      <span>Hide comments</span>
+    </label>
+  </div>
+
+  <p class="hint">Changes apply instantly to open YouTube tabs.</p>
+
+  <script src="popup.js"></script>
+</body>
+</html>
