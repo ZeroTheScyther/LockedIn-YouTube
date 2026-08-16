@@ -4,8 +4,18 @@
     "version": "1.0",
     "description": "A Chrome extension hides all distractions from YouTube so you stop doomscrolling and rotting your brain.",
     "permissions": ["storage"],
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
     "action": {
-        "default_popup": "popup.html"
+        "default_popup": "popup.html",
+        "default_icon": {
+            "16": "icon16.png",
+            "48": "icon48.png",
+            "128": "icon128.png"
+        }
     },
     "content_scripts": [
         {
