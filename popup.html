@@ -11,6 +11,7 @@
     --muted: #9a9ca3;
     --accent: #2f80f5;
     --track: #4b4d55;
+    --kofi: #ff5e5b;
   }
 
   * { box-sizing: border-box; }
@@ -107,11 +108,43 @@
   }
 
   .hint {
-    margin: 12px 2px 0;
+    margin: 12px 2px 10px;
     color: var(--muted);
     font-size: 11px;
     line-height: 1.4;
     text-align: center;
+  }
+
+  .kofi {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px;
+    border: 1px solid var(--card-line);
+    border-radius: 8px;
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+  }
+
+  .kofi:hover {
+    background: rgba(255, 94, 91, 0.12);
+    border-color: var(--kofi);
+    color: var(--kofi);
+  }
+
+  .kofi:focus-visible {
+    outline: 2px solid var(--kofi);
+    outline-offset: 2px;
+  }
+
+  .kofi svg {
+    width: 15px;
+    height: 15px;
+    flex: none;
   }
 </style>
 </head>
@@ -143,6 +176,17 @@
   </div>
 
   <p class="hint">Changes apply instantly to open YouTube tabs.</p>
+
+  <a class="kofi" href="https://ko-fi.com/zerothescyther" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 8h1a4 4 0 1 1 0 8h-1"></path>
+      <path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path>
+      <line x1="6" y1="2" x2="6" y2="4"></line>
+      <line x1="10" y1="2" x2="10" y2="4"></line>
+      <line x1="14" y1="2" x2="14" y2="4"></line>
+    </svg>
+    Buy me a coffee
+  </a>
 
   <script src="popup.js"></script>
 </body>
